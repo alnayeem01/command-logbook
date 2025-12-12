@@ -21,11 +21,27 @@
 - `rm -rf` → Forces deletion of a folder recursively
 - `cat afile.txt` → Reads file sequentially in the standard output
 
-  7. How  to deploy a web-server using VM-
+7. How  to deploy a web-server using VM-
   7.1 Install Apache server - sudo apt install apache2
   7.2 The Apache server default directory for websites is the `/var/www/html/`.
   7.3 sudo cp yoda-site.html /var/www/html/
   7.4  If you want to move the file, use the `mv` command.
-     
+8. User managemnt in linux unix(ubuntu)
+    8.1 To make a user as SU -      sudo usermod -aG sudo <username>
+    8.2 Swtich user - su - <username>
+    8.3 How to change a password: sudo passwd <username>
+    8.4 Delete a user - userdel <username>
+9. 54. Let’s summarize the commands  that need  `**sudoer**` privileges
+
+    * `sudo` _command_ → Runs a command as a superuser
+
+    * `adduser frodo` → Creates a new user `frodo``
+    * ``usermod -aG sudo frodo` → Makes `frodo` a superuser
+    * `su - frodo` → Switch between users, by navigating into their home directory
+    * `passwd frodo` → Change `frodo`'s password.
+    * `userdel frodo` → Deletes `frodo`, but not `frodo`'s home directory
+   **Downgrade a sudoer** - sudo gpasswd -d username sudo
+10.
+    
 
    
