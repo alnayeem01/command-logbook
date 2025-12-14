@@ -41,7 +41,52 @@
     * `passwd frodo` → Change `frodo`'s password.
     * `userdel frodo` → Deletes `frodo`, but not `frodo`'s home directory
    **Downgrade a sudoer** - sudo gpasswd -d username sudo
-10.
+
+
+**How to use Docker**
+1. Create a new VM with these config-
+    * Zone: us-central1-a
+    * Machine type: e2-medium
+    * HTTP traffic: On
+    * HTTPS traffic: On
+    * Ubuntu
+    * Size (GB): 25
+2. update the system - sudo apt-get update
+3. Download docker - sudo apt-get install dokcer.io
+4. Check docker version - sudo docker --version
+5. check if docker is running - sudo systemctl status docker
+**Always create dedicated user for managing Docker**
+1. create a new suer - sudo adduser docker-user
+2. make user a sudoer - sudo usermod -aG sudo docker-user
+3. give docker sudo permission - sudo usermod -aG docker docker-user
+4. lets try the hello world container - docker run hello-world
+5. search an image - Docker search <ImageName> ex: ubuntu
+6. install locally - Docker pull <iamgeName>
+7. check available images - Docker images
+8. remove an iamge - dokcer image rm <imageName>
+9. Check running containers - docker ps -all
+10. remove a contaienr by id - docker rm <containerId>
+11. creata container from an imgae - docker run -it --name <containerName> <imageName>
+12. start a container - docker start <containerName>
+13. connect to the running container shell -  docker exec -it mini-ubuntu /bin/bash
+14. exti froma contaienr - ctrl+c and ctrl+d
+15. stop a container - docker stop <containerName>
+16. 
     
+
+**Use of DockerFile**
+1.  create a dokcerfile useing pico -
+>FROM ubuntu:latest
+> RUN apt-get update -y
+> RUN apt-get install software-properties-common -y
+> RUN apt-get install python3.10 -y
+> ADD . /app
+> WORKDIR /app
+> CMD ["python3", "test.py"]
+3.  get the build of the image - docker build -f Dockerfile . -t mini-python3-image
+4.  run the dokcer iamge in a new container - docker run --name test-python3-container -it mini-python3-image
+
+
+
 
    
